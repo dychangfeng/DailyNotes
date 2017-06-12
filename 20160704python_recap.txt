@@ -1,0 +1,35 @@
+### if and elif
+
+for accession in accs:
+	if accession.startswith('a'):
+		file1.write(accession + '\n')
+	elif accession.startswith('b'):
+		file2.write(accession + '\n')
+	else 
+		file3.write(accession + '\n')
+		
+### join conditions
+
+for accession in accs:
+	if accession.startswith('a') and accession.endswith('e'):
+		.......
+		
+		
+## while loop, runs until some condition is met
+
+count =0 
+while count<10:
+	print(count)
+	count = count + 1
+	
+	
+###dictionary, print out tri nucleotides
+dna = "AATGATCGATCGTACGCTGA"
+counts = {}
+for base1 in ['A', 'T', 'G', 'C']:
+	for base2 in ['A', 'T', 'G', 'C']:
+		for base3 in ['A', 'T', 'G', 'C']:
+			trinucleotide = base1 + base2 + base3
+			count = dna.count(trinucleotide)
+			counts[trinucleotide] = count
+print(counts)

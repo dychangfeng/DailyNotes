@@ -1,0 +1,4 @@
+./dsk -file HG_reads_all_untrimed.fa -kmer-size 27 -abundance-min 3 ###require the minimum abundance
+
+
+dsk2ascii -file output.h5 -out output.txt

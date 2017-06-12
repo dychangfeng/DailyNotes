@@ -1,0 +1,10 @@
+get the location from bed file from Quadparser
+
+chr10:100060790-100061023_201_223_rev
+
+cut -f1 test_G4.bed | sed 's/:/\t/g' | sed 's/-/\t/g' 
+
+cut -f4 test_G4.bed | sed -e 's/[:-]/\t/g' | sed 's/_/\t/g' ### get the location of G4 by substitude '_'
+
+cut -f4,7 test_G4.bed | sed -e 's/[:-]/\t/g' | sed 's/_/\t/g' | awk '{print $1 "\t" $2 + $4 -1 "\t" $2 + $5 -1 "\t" $6 "\t" $7}'
+### get the exact location of G4

@@ -1,0 +1,26 @@
+git http://rogerdudler.github.io/git-guide/
+
+git clone /path/to/repository
+git clone username@host:/path/to/repository
+git add <filename>
+git status # check the status of the repository
+git commit -m "Commit message"
+git push origin master ## push the changes to github
+git remote add origin <server>
+
+git checkout -b feature_x ## create new branch
+git checkout master ## switch back to master
+git branch -d feature_x ## delete the branch
+git push origin <branch> ## push the branches to github
+
+
+to update your local repository to the newest commit, execute 
+git pull
+in your working directory to fetch and merge remote changes.
+
+to merge another branch into your active branch (e.g. master), use
+git merge <branch>
+in both cases git tries to auto-merge changes. Unfortunately, this is not always possible and results in conflicts. You are responsible to merge those conflicts manually by editing the files shown by git. After changing, you need to mark them as merged with
+git add <filename>
+before merging changes, you can also preview them by using
+git diff <source_branch> <target_branch>

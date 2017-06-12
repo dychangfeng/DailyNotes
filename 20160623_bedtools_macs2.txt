@@ -1,0 +1,14 @@
+
+## intersect my data set with promoters of ucsc genes and ensemble genes
+
+/tomato/app/bedtools/bedtools intersect -c -a ../../Yun/genomes/mm9/mm9_ucscGene_promoter2000.txt -b control_merge_pair.bed > control_ucscGene_promoter2000.bed
+
+MACS2 require bed format has strandness on 6th column, so add "+" to all the reads by awk
+awk '{print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" "+" }' ../2016_06_03_17_11_4.199578/control_merge_pair.bed > control_pair_with_strand.bed &
+
+
+/home/BioApps/macs2/macs2 callpeak -t wt_merge_pair.bed -c ../2016_06_03_17_11_4.199578/control_merge_pair.bed -f AUTO -m 2 100 --bw 300-p 0.05 &>log5 &
+
+/tomato/app/bedtools/bedtools coverage -a sort.narrowPeak -b ../G4_hg_mm9/hglft_genome_g4_mm9.bed | column -t
+
+/home/BioApps/macs2/macs2 callpeak --nomodel -t ../control_pair_with_strand.bed  -c ../wt_pair_with_strand.bed -f AUTO -m 3 100 --bw 300 -p 0.05 &>log6 &

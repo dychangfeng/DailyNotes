@@ -1,0 +1,7 @@
+/tomato/dev/app/useq/8.8.8
+
+merge paired end reads
+java -Xmx20G -jar /home/BioApps/USeq/Apps/MergePairedAlignments -b ~/A3795/2016_06_03_17_11_4.199578/control_sorted.bam -s ~/A3795/2016_06_03_17_11_4.199578/merge_mapped -d 10000
+
+
+nohup /home/BioApps/SamTools/samtools-0.1.18/samtools sort -n wt_sorted_mapped.bam wt_name_sorted_mapped &>log.name.sort & 

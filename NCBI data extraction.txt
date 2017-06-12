@@ -1,0 +1,2 @@
+NCBI data extraction
+fastq-dump SRR243575

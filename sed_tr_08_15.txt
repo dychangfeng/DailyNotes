@@ -1,0 +1,8 @@
+grep forward Genes.txt | cut -d' ' -f1-3 | sed 's/[:,]//g'| sed 's/forward//g'|tr '-' \\t| tr ' ' \\t| cut -f2-5 | awk '{print $1 "\t" $2 - 2000 "\t" $2 "\t" $4}' > forward.txt
+
+
+grep reverse Genes.txt | cut -d' ' -f1-3 | sed 's/[:,]//g'| sed 's/reverse//g'|tr '-' \\t| tr ' ' \\t| cut -f2-4 | awk '{print $1 "\t" $3 "\t" $3 + 2000 }' > reverse.txt
+
+'s/^/chr/'grep forward Genes.txt | sed 's/[:,]//g'| sed 's/forward//g'|sed 's/strand//g'|tr '-' \\t| tr ' ' \\t | cut -f2-6 || awk '{print $1 "\t" $2 - 2000 "\t" $2 "\t" $5}' > forward.txt
+
+cut -f9  wt_G4_wo_exact_ensemble_promoters.txt |tr '_' \\t | cut -f1

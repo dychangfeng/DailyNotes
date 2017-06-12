@@ -1,0 +1,17 @@
+## samtools mpileup
+
+samtools mpileup -u -v -f 
+
+
+## use cat to add sam header to 
+
+/home/BioApps/bcftools
+
+
+## SET UP NEW ENVIRONMENTAL VARIABLES
+
+PICARD=/Users/Yun/bash_application/picard.jar
+GATK=/Users/Yun/bash_application/GATK/GenomeAnalysisTK.jar
+
+
+java -jar $PICARD 

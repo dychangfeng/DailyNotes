@@ -1,0 +1,6 @@
+HTseq   
+
+python package to deal with next generation sequencing data
+
+in R, Option - (a dash) to create <-
+ls()

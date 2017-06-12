@@ -1,0 +1,46 @@
+pushd 
+
+java -Xmx5g -jar /home/BioApps/Samtools
+
+rsync ~/Desktop/gnomex.jnlp u0674686@hci-moab.hci.utah.edu:~
+
+ #sam to bam
+ 
+ samtools view -bS test.sam > test.bam
+
+/home/BioApps/SamTools/samtools-0.1.18/samtools view -bS 12366X2_160526_D00550_0345_AC9DAGANXX_4_1.sam > wt_ss.bam
+
+
+ 
+ samtools sort test.bam test_sorted ## sort the file
+
+ samtools index test_sorted.bam test_sorted.bai ## make index file
+ 
+ samtools view -h -F 4 -b wt_ss_sorted.bam > wt_ss_sorted_mapped.bam   ### only take mapped sequence
+ 
+ #######------------f 4  ### only take unmapped sequences
+ 
+### sam to bam, sorted, and index
+/home/BioApps/SamTools/samtools-0.1.18/samtools view -bS *.sam > *.bam | /home/BioApps/SamTools/samtools-0.1.18/samtools sort *.bam sorted | /home/BioApps/SamTools/samtools-0.1.18/samtools index sorted.bam sorted.bai
+ 
+ 
+ 
+
+ 
+ 
+ bedtools ## use alta
+  /tomato/app/bedtools/bedtools bamtofastq
+  
+  ### convert fastq to fasta
+  awk '{if(NR%4==1) {printf(">%s\n",substr($0,2));} else if(NR%4==2) print;}' > file.fa
+  
+  python ~/A3795/Quadparser.py -f test.fa > test.bed
+  
+  
+ java -Xmx2G -jar /home/BioApps/USeq/Apps/ChIPSeq -y sam -v M_musculus_Jul_2007 -t ~/A3795/A3795/2016_06_03_17_11_4.410214/sam_file -c ~/A3795/A3795/2016_06_03_17_11_4.199578/sam_file -s ~/A3795/A3795/chipseq_data 
+  
+/home/u0674686/A3795/2016_06_02_19_02_15.942148        control
+/home/u0674686/A3795/2016_06_02_19_10_2.551312/sam_file
+
+nohup  java -Xmx2G -jar /home/BioApps/USeq/Apps/ChIPSeq -y sam -v M_musculus_Jul_2007 -t /home/u0674686/A3795/2016_06_02_19_10_2.551312/sam_file -c /home/u0674686/A3795/2016_06_02_19_02_15.942148/sam_file -s ~/A3795/wt_ss_1_chipseq 
+  

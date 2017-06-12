@@ -1,0 +1,4 @@
+MEME
+/home/BioApps/MEME/bin/meme
+
+/home/BioApps/MEME/bin/meme -o meme_5fold_3 -dna -mod anr -revcomp -maxsize 2000000 -minw 5 -maxw 50 -nmotifs 4 ogg1_5fold_seq.fa

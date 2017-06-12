@@ -1,0 +1,8 @@
+/home/Genomes/Mouse/Mm10/Fasta
+## how many in intron, cds, promoter, first intron
+/tomato/app/bedtools/bedtools intersect -a wt.narrowPeak -b ../../Yun/genomes/mm9/mm9_introns.txt -u >wt_peak_intersect_introns.bed
+
+look for GT repeats in sample
+grep -c -E 'GTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGT|ACACACACACACACACACACACACACACACACACACACACACACACACACACACACACAC' ogg1_unmapped.fa
+
+grep -c -E 'GGGTTAGGGTTAGGGTTAGGGTTAGGGTTAGGGTTAGGGTTAGGGTTA|TAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCC'

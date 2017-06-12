@@ -1,0 +1,17 @@
+/home/BioApps/SamTools/samtools-0.1.19/samtools
+
+nohup /home/BioApps/SamTools/samtools-0.1.19/samtools sort GSM851559_igg_ctrl.aln.bam control.sam.bam.sorted &
+
+get the location from bed file from Quadparser
+
+chr10:100060790-100061023_201_223_rev
+
+cut -f1 test_G4.bed | sed 's/:/\t/g' | sed 's/-/\t/g' 
+
+cut -f4 test_G4.bed | sed -e 's/[:-]/\t/g' | sed 's/_/ /g' ### My solution is to press Control+V and then the tab char
+#get the exact location of G4
+
+cut -f4,6,7 polII_10fold_Quad_3_12.bed | sed -e 's/[:-]/  /g' | sed 's/_/ /g'  | awk '{print $1 "\t" $2 + $4 -1 "\t" $2 + $5 -1 "\t" $7}'> G4_polII_10fold.bed
+grep '+' G4_polII_10fold.bed > forward_G4_polII_10fold.bed
+grep -v '+' G4_polII_10fold.bed |awk '{print $1 "\t" $2 "\t" $3 "\t" "-"}' > reverse_G4_polII_10fold.bed
+cat forward_G4_polII_10fold.bed reverse_G4_polII_10fold.bed > G4_polII_10fold.bed4

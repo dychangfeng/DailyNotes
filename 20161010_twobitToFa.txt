@@ -1,0 +1,14 @@
+faToTwoBit genome.fa genome.2bit
+## get the center peak in each enriched peak
+awk 'BEGIN{OOFS = "\t";} {midPos = $2 + $10; print $1, midPos-125, midPos+125;}' ogg1_5fold.narrowpeak >ogg1_5fold_center250.bed
+## get fasta from bed
+fastaFromBed -fi ../../reference_genome/mm9/mm9.fa -bed ogg1_5fold_center250.bed -fo ogg1_5fold_center250.fa
+
+## shuffle bed to get fasta
+
+bedtools shuffle -noOverlapping -i ogg1_5fold_center250.bed -g ../../reference_genome/mm9.chrom.sizes.txt | bedtools getfasta -fi ../../reference_genome/mm9/mm9.fa -bed - -fo shuffle250_5.fasta
+
+##meme-chip
+meme-chip -o meme_chip_250 -dna -meme-minw 25 -meme-maxw 40 -dreme-m 2 ogg1_5fold_center250.fa 
+
+/tomato/app/bedtools/bedtools getfasta -fi ../../../Yun/genomes/mm9_chrAll.fasta

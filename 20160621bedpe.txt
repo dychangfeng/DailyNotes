@@ -1,0 +1,34 @@
+cut -f1,2,6,7,8 ogg1_sorted_mapped.bed > A3795/2016_06_03_17_11_4.641441/ogg1_pair_merged.bed
+
+bedtools bamtobed -bedpe -mate1 -cigar -i wt_ss.bam > wt_ss_bedpe.bed
+  /tomato/app/bedtools/bedtools coverage
+  
+  /tomato/app/bedtools/bedtools coverage -a wt_sorted.bedpe -b hglft_genome_ongene_mm9.bed 
+  
+  ##sort bedpe by chr and start site
+  sort -k1,1 -k2,2n *.bed
+  
+  awk '$1 ~ /chr*/ & $3 ~ /chr*/' wt_sorted_bedpe.bed > wt_sorted_mapped_bedpe.bed &  ### remove unmapped reads
+ 
+
+  cut -f1,2,6,7,8 ogg1_sorted_mapped.bed > A3795/2016_06_03_17_11_4.641441/ogg1_pair_merged.bed  ## take the beginning of first read and the end of second read
+
+
+
+remove those reads with mates on different chrs and too far from each other
+
+ nohup awk '$1 ~ /chr*/ && $6-$2>0 && $6-$2<2000 {print $1 "\t" $2 "\t" $6 "\t" $7 "\t" $8 "\t" $6-$2}' wt_sorted_mapped_bedpe.bed >wt_pair_merge_mapped_sorted.bed &
+ 
+ 
+ 
+ 
+ To Do
+ 
+ control: /tomato/app/bedtools/bedtools bamtobed -bedpe -i control.bam > control.bedpe 
+            sort -k1,1 -k2,2n *.bed
+            awk '$1 ~ /chr*/ && $6-$2>0 && $6-$2<2000 {print $1 "\t" $2 "\t" $6 "\t" $7 "\t" $8 "\t" $6-$2}'
+            
+ 
+ wt:  awk '$1 ~ /chr*/ && $6-$2>0 && $6-$2<2000 {print $1 "\t" $2 "\t" $6 "\t" $7 "\t" $8 "\t" $6-$2}
+ 
+ ogg1.bedpe   sort -k1,1 -k2,2n *.bed |   awk '$1 ~ /chr*/ && $3 ~ /chr*/' | awk '$6-$2>0 && $6-$2<2000 {print $1 "\t" $2 "\t" $6 "\t" $7 "\t" $8 "\t" $6-$2}'

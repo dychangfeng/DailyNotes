@@ -1,0 +1,3 @@
+use tabix to get alley frequency
+
+tabix -f -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/supporting/AFR.2of4intersection_allele_freq.20100804.genotypes.vcf.gz 12:101266000-101422000 > afr.vcf

@@ -1,0 +1,8 @@
+polII_down_1kb_shift.txt > polII_down_1kb_shift.bed
+bedtools getfasta -fi ~/reference_genome/mm9/mm9_all.fa -bed polII_down_1kb_shift.bed -fo polII_down_1kb_shift.fasta
+python ~/MEF/Quadparser3_12.py -f polII_down_1kb_shift.fasta > polII_down_1kb_shift_Quadparser.txt
+
+cut -f4,6,7 polII_10fold_Quad_3_12.bed | sed -e 's/[:-]/  /g' | sed 's/_/ /g'  | awk '{print $1 "\t" $2 + $4 -1 "\t" $2 + $5 -1 "\t" $7}'> G4_polII_10fold.bed
+grep '+' G4_polII_10fold.bed > forward_G4_polII_10fold.bed
+grep -v '+' G4_polII_10fold.bed |awk '{print $1 "\t" $2 "\t" $3 "\t" "-"}' > reverse_G4_polII_10fold.bed
+cat forward_G4_polII_10fold.bed reverse_G4_polII_10fold.bed > G4_polII_10fold.bed4

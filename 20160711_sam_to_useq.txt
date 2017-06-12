@@ -1,0 +1,3 @@
+#### convert sam file to useq
+nohup java -Xmx30G -jar /home/BioApps/USeq/Apps/Sam2USeq -f /scratch/yunding/A3795/2016_06_03_17_11_4.878209/ -v M_musculus_Jul_2007
+

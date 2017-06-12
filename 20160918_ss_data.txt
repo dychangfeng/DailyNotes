@@ -1,0 +1,3 @@
+/scratch/yunding/A3795
+
+## samtools view -bS *.sam > *.bam    require unzipped file

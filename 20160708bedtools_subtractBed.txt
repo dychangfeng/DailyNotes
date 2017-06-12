@@ -1,0 +1,3 @@
+##To get intergenic region, subtractBed from genic regions
+bedtools subtractBed -a mm9_genmoe.bed -b mm9_genes.bed
+

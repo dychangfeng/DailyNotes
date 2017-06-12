@@ -1,0 +1,12 @@
+sed -i -e 's/chr23/chrX/g' g4C.bed
+
+grep -B3 'ATG' G4C.BED ## print 3 lines before (B) 'ATG'
+     -A2 ......         ## print 2 lines after (A)....
+     -E 'O1fr1413|O1fr1411' ### extended regular expressions
+     -c ....        # how many lines match a pattern 
+     -o  ### grep only the matching part of the pattern
+     --color ##highlight matches
+     
+     wget --timestamping 'ftp://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit' -O hg19.2bit
+    wget -c "ftp..."  # continue to download 
+    

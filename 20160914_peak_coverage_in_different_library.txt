@@ -1,0 +1,5 @@
+bedtools coverage -a ../ogg1_3fold.narrowpeak -b RenLab-H3K4me1-MEF-peaks.txt > ogg1_H3K4me1.bed
+
+cut -f14 wt_H3K4me1.bed | grep [^0.0000000] | wc -l ## how many of OG enriched peaks in the library we are interested
+
+/home/BioApps/Bedops/v2.4.2/bin/wig2bed_new

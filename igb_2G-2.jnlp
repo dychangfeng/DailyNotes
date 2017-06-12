@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="6.0+" version="8.1" codebase="http://bioviz.org/igb/releases/igb-8.1.1">
+	<information>
+		<title>IGB 8.1</title>
+		<vendor>Genoviz Project & U of Utah Bioinformatics Shared Resource</vendor>
+		<homepage href="http://genoviz.sourceforge.net/" />
+		<description>Integrated Genome Browser (8.1)</description>
+		<icon href="igb.gif"/>
+<!--		<icon href="igb_splash.gif" kind="splash" />-->
+		<offline-allowed/>
+		<shortcut online="true">
+			<desktop/>
+			<menu submenu="IGB" />
+		</shortcut>
+	</information>
+	<security>
+		<all-permissions/>
+	</security>
+	<resources>
+		<java version="1.6+" initial-heap-size="32m" max-heap-size="2048m"/>
+		<jar href="igb_exe-large.jar" main="true" />
+		<!-- jar href="igb-i18n.jar" / -->
+		<property name="apple.laf.useScreenMenuBar" value="true" />
+		<property name="http.agent" value="IGB/8.1 +LargeMem (Webstart)" />
+	</resources>
+	<application-desc main-class="com.affymetrix.main.Main" name="IGB">
+		<argument>-prefs</argument>
+		<argument>http://b2b.hci.utah.edu/IGB/igb_prefs.xml</argument>
+		<!-- Wildcard values inserted to allow modifications after signing -->
+		<argument>-href</argument>
+		<argument>*</argument>
+		<argument>-scriptfile</argument>
+		<argument>*</argument>
+	</application-desc>
+</jnlp>

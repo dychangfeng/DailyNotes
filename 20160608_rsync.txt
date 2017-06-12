@@ -1,0 +1,3 @@
+/home/u0674686/A3795/A3795/chipseq_data/ReadCoverageTracks
+
+rsync u0674686@hci-moab.hci.utah.edu:/home/u0674686/A3795/A3795/chipseq_data/ReadCoverageTracks/T_Rep0.useq ~/MEF/

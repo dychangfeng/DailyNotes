@@ -1,0 +1,11 @@
+hci-vpn.hci.utah.edu
+1plus zhiwei8
+
+hci-moab.hci.utah.edu
+hci-alta.hci.utah.edu
+hci-uinta.hci.utah.edu
+
+If you need to VPN to those machines (from off-campus for example), direct your web browser to http://hci-vpn.hci.utah.edu/ .
+
+
+

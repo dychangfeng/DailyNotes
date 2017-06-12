@@ -1,0 +1,2 @@
+## use bedtools shuffle bed file and generate fasta sequence file
+bedtools shuffle -noOverlapping -i wt_4fold.bed -g ../../../reference_genome/mm9.chrom.sizes.txt | bedtools getfasta -fi ../../../reference_genome/mm9/mm9.fa -bed - -fo shuffle1.fasta

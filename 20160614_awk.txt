@@ -1,0 +1,1 @@
+awk '$1 ~ /chr1/ && $7>5.0 && $8 >2.0 ' NA_peaks.narrowPeak | less

@@ -1,0 +1,4 @@
+java -cp . GenRGenS.markov.BuildMarkov -o 1 zika_random.txt -d test1.txt
+
+java -cp . GenRGenS.GenRGenS -nb 1 -size 10794 test.txt > zika_random_5.txt
+

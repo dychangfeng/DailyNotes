@@ -1,0 +1,15 @@
+lofreq call
+lofreq somatic
+lofreq somatic -n normal.bam -t tumor.bam -f hg19.fa \
+    --threads 8 -o out_ [-d dbsnp.vcf.gz]
+    
+lofreq somatic -n ogg1_5fold_mutual.bam -t ogg1_5fold_ss_mutual.bam -f ~/Yun/
+/home/BioApps/SamTools/samtools-0.1.18/samtools view -L ogg1_mutual_5fold.bed -h ogg1_sorted.bam -o ogg1_5fold.sam
+1. prepare bam files for lofreq
+samtools extract regions (bedfiles), to bam file, and the nindex the bam file
+nohup samtools view -L ~/A3795/ogg1_pair_macs2/ogg1_4fold/og1_4fold.bed -h /scratch/yunding/A3795/2016_06_03_17_11_5.115117/ogg1_ss.sorted.bam
+\ | samtools view -bT ~/Yun/genomes/mm9_chrAll.fasta - > ogg1_3fold_mutual.bam 2>log &
+2. index bamfiles
+samtools index .bam
+3. run lofreq
+lofreq somatic -n ogg1_5fold_mutual.bam -t ogg1_5fold_ss_mutual.bam -f ~/Yun/genomes/mm9_.fasta -o 

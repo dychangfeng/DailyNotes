@@ -1,0 +1,4 @@
+pip freeze ##check all the packages installed
+
+## open ipython notebook
+ipython notebook *.ipynb 

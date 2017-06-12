@@ -1,0 +1,13 @@
+SAM TO USEQ
+
+java -Xmx5g -jar /home/BioApps/USeq/Apps/Sam2USeq -f 12366X2_160526_D00550_0345_AC9DAGANXX_4.sam.gz -r -v M_musculus_Jul_2007
+
+MACS2 call peak
+nohup /home/BioApps/macs2/macs2 callpeak -t 2016_06_03_17_11_4.641441/12366X3_160526_D00550_0345_AC9DAGANXX_4.sam.gz -c 2016_06_03_17_11_4.199578/12366X1_160526_D00550_0345_AC9DAGANXX_4.sam.gz -f AUTO &> log2 &
+/home/BioApps/macs2/macs2 callpeak -t /home/u0674686/A3795/2016_06_03_17_11_4.641441/12366_160526_D00550_0345_AC9DAGANXX_4.sam.gz -c /home/u0674686/A3795/2016_06_03_17_11_4.199578/12366X1_160526_D00550_0345_AC9DAGANXX_4.sam.gz -f AUTO -m 2 100 --bw 300 -p 0.05 &>log5 &
+
+
+##bedtools
+/tomato/dev/app/bedtools/2.16.2/bedtools/bedtools
+
+/tomato/dev/app/bedtools/2.16.2/bedtools/bedtools getfasta -fi /home/Genomes/Mouse/Mm10/chrAllNormal.fasta -bed NA_summits.bed -fo summits.fa

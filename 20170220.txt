@@ -1,0 +1,2 @@
+##use awk to add chr to chromosome numbers
+awk -F $'\t' 'BEGIN {OFS="\t"}; {print "chr"$1, $2, $3, $4}' c15_hg19.txt > c15_hg19_with_chr.bed

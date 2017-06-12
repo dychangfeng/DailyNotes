@@ -1,0 +1,10 @@
+bowtie2 -x ~/reference_genome/homosapiens/hg19/hg19 -f oncogeneG4.fa -S ongene.sam  ##align fasta seq to ref
+samtools view -bT ~/reference_genome/homosapiens/hg19.fa ongene.sam > ongene.bam ## sam to bam
+bedtools bamtobed -cigar -i ongene.bam > ongene.bed ### bam to bed
+
+
+
+
+
+
+
