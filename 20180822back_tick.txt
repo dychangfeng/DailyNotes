@@ -1,0 +1,3 @@
+The output of a command can be put directly into a variable with the backtick: `
+• The backtick is not the same as a single quote: `'
+• Bash form: VAR=`wc -l $FILENAME` # no space!!!

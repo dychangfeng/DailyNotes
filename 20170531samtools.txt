@@ -1,6 +1,10 @@
 /home/BioApps/SamTools/samtools-0.1.19/samtools
 
+nohup /home/BioApps/SamTools/samtools-0.1.19/samtools -bT /home/u0674686/Yun/genomes/mm9_chrAll.fasta rest_polII.sam > rest_polII.sam.bam &
+
 nohup /home/BioApps/SamTools/samtools-0.1.19/samtools sort GSM851559_igg_ctrl.aln.bam control.sam.bam.sorted &
+
+
 
 get the location from bed file from Quadparser
 

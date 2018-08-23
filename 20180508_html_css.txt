@@ -1,0 +1,41 @@
+Common elements:
+<!DOCTYPE html>
+head
+title
+body
+h1, h2, h3, h4: headings, h1 is the top-level heading
+p: a paragraph
+ul, ol, li: Unordered lists, ordered lists, and list items
+em: indicates emphasis. typically rendered in italics
+strong: indicates additional emphasis. Typically rendered in boldface
+a: A link. typically rendered as underlined, blue text, unless otherwise specified.
+span: an arbitrary span of text, typically within a larger containing element like p
+div: an arbitrary division within the document. Used for grouping and containing related elements.
+
+We assign all HTML elements attributes by including property/value pairs in the opening tag:
+     <tagname property = "value"></tagname>
+     <a href="http://d3js.org/">The D3 website</a>
+     <p class="uplifting awesome">Awe-inspiring paragraph</p> : this class is both uplifting AND awesome
+    
+ID can be used similar to class, but there can be only one ID per element. 
+Class and ID names can NOT begin with numbers. They must begin with alphabetic characters.  
+Comment: <!-- Your comment here -->
+DOM : document object model, refer to hierarchical structure of HTML.
+
+!! to a browser, everything is a box.
+CSS
+Cascading Style Sheets are used to style the visual presentation of DOM elements (Document object model)
+CSS styles consist of selectors and properties. 
+
+### comment---------###
+Comments
+/* By the way, this is what a comment looks like
+   in CSS.  They start with a slash-asterisk pair,
+   and end with an asterisk-slash pair.  Anything
+   in between will be ignored. */
+
+##-------Ways to add css style to you html-------
+1. embed css to your head
+2. reference an external docoment in head, with link element.
+3. In line style of any element in html.
+

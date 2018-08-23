@@ -1,0 +1,31 @@
+
+
+
+/home/BioApps/SamTools/samtools-0.1.19/samtools
+##sam to bam, sort, index
+nohup /home/BioApps/SamTools/samtools-0.1.19/samtools -bT /home/u0674686/Yun/genomes/mm9_chrAll.fasta rest_polII.sam > rest_polII.sam.bam &
+
+nohup /home/BioApps/SamTools/samtools-0.1.19/samtools sort GSM851559_igg_ctrl.aln.bam control.sam.bam.sorted &
+
+## call peaks from bam
+nohup /home/BioApps/macs2/macs2 callpeak -c control.bam.sorted.bam -t rest_polII.bam.sorted.bam -m 5 100 -p 0.01 2>log4.txt &
+
+## get G4 from peaks by Quadparser
+awk '$7>5.00' NA_peaks.narrowPeak > polII_rest_5fold.peaks
+cut -f1,2,3,4,6,7 polII_rest_10fold.peaks > polII_rest_10fold.bed
+
+bedtools getfasta -fi ~/reference_genome/mm9/mm9_all.fa -bed polII_rest_10fold.bed -fo polII_rest_10fold.fasta
+python ~/MEF/Quadparser3_12.py -f polII_rest_10fold.fasta > polII_rest_10fold_Quadparser.bed
+#get the exact location of G4
+### press Control+V and then the tab
+cut -f4,6,7 polII_10fold_Quad_3_12.bed | sed -e 's/[:-]/  /g' | sed 's/_/ /g'  | awk '{print $1 "\t" $2 + $4 -1 "\t" $2 + $5 -1 "\t" $7}'> G4_polII_10fold.bed
+grep '+' G4_polII_10fold.bed > forward_G4_polII_10fold.bed
+grep -v '+' G4_polII_10fold.bed |awk '{print $1 "\t" $2 "\t" $3 "\t" "-"}' > reverse_G4_polII_10fold.bed
+cat forward_G4_polII_10fold.bed reverse_G4_polII_10fold.bed > G4_polII_10fold.bed4
+
+## generate random sequences and calculate how many g4 in random sequences
+## bedtools shuffle, getfasta, and then quadparser
+ bedtools shuffle -i polII_rest_10fold.bed -g ~/reference_genome/mm9/mm9.chrom.sizes.txt | bedtools getfasta -fi ~/reference_genome/mm9/mm9_all.fa -bed - -fo random1.fasta
+ 
+ python ~/MEF/Quadparser3_12.py -f random1.fasta > random1_rest10fold_g4.bed
+

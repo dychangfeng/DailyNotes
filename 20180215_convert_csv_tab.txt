@@ -1,0 +1,3 @@
+change csv to tab-deliminated
+cat prokaryotes.csv | tr "," "\t"
+sed 's|,|\t|g' prokaryotes.csv

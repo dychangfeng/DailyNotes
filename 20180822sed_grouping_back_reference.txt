@@ -1,0 +1,28 @@
+Example 5: Commify the simple number.
+
+Let us create file called numbers which has list of numbers. The below sed command example is used to commify the numbers till thousands.
+
+$ cat  numbers
+1234
+12121
+3434
+123
+
+$sed 's/\(^\|[^0-9.]\)\([0-9]\+\)\([0-9]\{3\}\)/\1\2,\3/g' numbers
+1,234
+12,121
+3,434
+123
+The command below matches words starting with any character, followed by the letter ‘o’, followed by the same character as the first.
+sed -E -n '/^(.)o\1$/p' /usr/share/dict/words
+bob
+mom
+non
+pop
+sos
+tot
+wow
+This command searches for 6-letter palindromes (the first three letters are 3 subexpressions, followed by 3 back-references in reverse order):
+
+$ sed -E -n '/^(.)(.)(.)\3\2\1$/p' /usr/share/dict/words
+redder

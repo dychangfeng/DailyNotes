@@ -1,0 +1,17 @@
+fix the problem with
+
+OK, please do:
+
+sudo conda update conda
+
+then:
+
+conda update -c rdonnellyr --all
+
+# link a version of python with jupyter
+source activate myenv
+python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
+
+## conda activate environment
+conda activate py3
+source deactivate py3

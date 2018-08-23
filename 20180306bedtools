@@ -1,0 +1,16 @@
+Bedtools:
+intersect:
+-wa, -wb, wo, write a, b, or overlap bases numbers
+-c, counts
+-v, no overlap
+-f 0.5, require the minimum of the overlap fraction, -F, report the reverse fraction
+merge:
+-d, the distance allowed in intervals when combined, file has to be sorted, sort -k1,1 -k2, 2n file.bed
+
+genomecov
+-bga, bedgraph (the forth column is the coverage), require the output is bedgraph
+
+JACCARD STATISTICS (index), calculate jaccard similirity
+makewindows
+-w window size
+-s step size, the size of the overlap between window

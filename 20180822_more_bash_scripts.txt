@@ -1,0 +1,8 @@
+basename *.fastq .fastq #remove the extension of the files
+for i in *.fastq
+do
+   newname=$(basename $i .fastq).fq
+   mv $i $newname
+done 
+
+## this is for renaming all the .fastq extensions to .fq

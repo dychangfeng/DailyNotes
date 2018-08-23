@@ -1,0 +1,85 @@
+##--------Var------------##
+VAriable always end with semicolon ";"
+numbers and true or false does not need quotation marks, but string does.
+##----------arrays-----------##
+var numbers = [ 5, 10, 15, 20, 25 ];
+numbers[2]  //Returns 15 ## array access
+!! array starts from 0, just like python list
+Arrays can contain any type of data, not just integers
+##-----------Objects-----------##
+here, fruit is an object
+var fruit = {
+    kind: "grape",
+    color: "red",
+    quantity: 12,
+    tasty: true
+};
+fruit.kind      //Returns "grape"
+fruit.color     //Returns "red"
+fruit.quantity  //Returns 12
+fruit.tasty     //Returns true
+
+JSON: javascripts object notation
+##-------logical operators-------##
+&&  //AND
+||  //OR
+##---------comparison------------##
+Comparison Operators
+You can compare values against each other using the following operators:
+
+==  //Equal to  
+==== //strict comparison, without converting the types
+!=  //Not equal to
+!== //strict comparison, without converting the types
+<   //Less than
+>   //Greater than
+<=  //Less than or equal to
+>=  //Greater than or equal to
+
+##---------control structures---------##
+if (test){//code to run if true}
+for(initialization; test; update){}
+for (var i = 0; i < 5; i++) {
+    console.log(i);  //Prints value to console
+}
+var numbers = [ 8, 100, 22, 98, 99, 45 ];
+
+for (var i = 0; i < numbers.length; i++) {
+    console.log(numbers[i]);  //Print value to console
+}
+numbers.length is 6.
+##-----------functions--------------##
+var calculateGratuity = function(bill) {
+    return bill * 0.2;
+};
+
+##-----------comments--------------##
+/* JavaScript supports CSS-style comments like this. */
+
+// But double-slashes can be used as well.
+// Anything following // on the same line will be ignored.
+// This is helpful for including brief notes to yourself
+// as to what each line of code does, as in:
+
+console.log("Brilliant");  //Prints "Brilliant" to the console
+
+##-------------referencing scripts--------------##
+1. directly in html, between two script tags.
+2. referece a .js file
+<head>
+    <title>Page Title</title>
+    <script type="text/javascript" src="myscript.js"></script>
+</head>
+
+##---------scope-----------##
+function level scope
+
+##---------window----------##
+window is the topmost object in the browser’s hierarchy of JavaScript elements.
+
+Declare a single global object, and attach all of your would-be global variables to that object
+
+I recommend always using the var keyword when declaring a new variable. It may surprise you to learn that it is actually possible to create a new variable without declaring it, as in:
+
+sloths = "Lazy, or just slow-moving?"  //An undeclared variable
+The problem is that undeclared variables are always global. Using the var keyword constrains the variable to be accessible only within its enclosing function, which is normally what you want and what you’d expect.

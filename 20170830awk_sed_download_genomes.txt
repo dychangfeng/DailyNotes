@@ -1,0 +1,7 @@
+  548  awk '{FS="\t"}!/^#/{print $22}' ~/bacteria_info/Deinococcus_thermus.txt |sed -r 's|(ftp://ftp.ncbi.nlm.nih.gov/genomes/all/.+/)(GCA_.+)|\1\2/\2_genomic.fna.gz|' >genomic_directory 
+  549  wget --input-file=genomic_directory
+  awk '{FS="\t"} $16=="Complete Genome"  {print $21}'
+  grep 'Euryarchaeota' prokaryotes.txt  | awk '{FS="\t"}!/^#/{print $21}' |sed -r 's|(ftp://ftp.ncbi.nlm.nih.gov/genomes/all/.+/)(GCA_.+)|\1\2/\2_genomic.fna.gz|' 
+
+## remove leading spaces
+sed -e 's/^[ \t]*//g' all_G4.txt |sed 's/ /\t/g'>all_G4_2.txt

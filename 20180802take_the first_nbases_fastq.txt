@@ -1,0 +1,3 @@
+sed -n '2~4p' myfile.fq | grep -o '^.\{9\}'
+# sed take the 2nd line from every 4 lines
+# grep take the first 9 bases of every reads

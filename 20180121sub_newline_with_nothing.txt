@@ -1,0 +1,14 @@
+how to remove the new line at the end of fasta file:
+Method 1:
+  awk '$1=$1' ORS='' chr22.fa
+Method 2:
+
+  sed -i ':a;N;$!ba;s/\n/\t/g' file
+
+Breakdown:
+; (semicolon is just a command separator within sed)
+sed (The command that calls the sed program)
+:a (a marker which we use to iterate over and over)
+N (Appends the next line to the pattern space)
+$!ba (repeats the N command for all lines but the last line)
+s/\n/\t/g (replaces all occurences of the newline character with tab)

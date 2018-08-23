@@ -1,4 +1,4 @@
 chr10:100095457-100096913	2	43	chr10:100095457-100096913_2_43_for	41	+	gggt
 gggtagggaagtggggggggtatgggggacttttggg
 chr10:100310944-100311976	738	766	chr10:100310944-100311976_738_766_for	28	+	gggg
-tggagggtttgggggacttatggg
+tggagggtttgggggacttatgggproject started 2013-01-03

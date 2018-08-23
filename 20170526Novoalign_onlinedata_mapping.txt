@@ -1,2 +1,5 @@
+SRA toolkit:
+fastq-dump --gzip SRR....   ## no need to redirect to new output file
+
 novoindex for mm9: /home/Genomes/Mouse/Mm9/NovoIndexes/mm9splices34.nix
 nohup novoalign -d /home/u0674686/Yun/genomes/mm9.ndx -f /home/u0674686/ncbi/SRR066394.fastq -o SAM > align_394.sam 2>log2.txt &

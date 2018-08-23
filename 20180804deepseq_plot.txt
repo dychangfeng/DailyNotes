@@ -1,0 +1,8 @@
+plotFingerprint 
+ -b bamfiles/*.sam.sorted.bam 
+--labels APE1_1 APE1_2 BG4_1 BG4_2 OGG1_1 OGG1_2 chip_control 
+--minMappingQuality 30 --skipZeros 
+--region 19 --numberOfSamples 50000 
+-T "Fingerprints of different samples"  
+--plotFile fingerprints.png 
+--outRawCounts fingerprints.tab

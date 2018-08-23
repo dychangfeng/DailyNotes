@@ -1,0 +1,19 @@
+for i in $(ls *.fastq.gz); do echo $i; bioawk -c fastx 'END{print NR}' $i; done
+
+## calculate the total length of the bed intervals
+## sum = 0, sum = sum + $3 -$2
+awk '{sum += $3-$2}END{print sum}' cpg.bed
+
+awk 'BEGIN{OFS="\t"}{print $0, $3-$2}' cpg.bed ## or awk -v OFS = "\t"
+or
+awk '{len=($3-$2); print $0"\t"len}' cpg.bed, ## len is new var
+## the average length of cpg
+awk '{len=($3-$2); print $0"\t"len/NR}' cpg.bed
+
+less -S
+column -t ## t means table format.
+
+awk 'print NF' number of records, can be used to test whether the file is uniform
+
+awk '{ split($8,a,";"); split(a[4],d,"="); if(d[2] == 0.166667) print $0 }'
+## split one column and name it as a, split a[4] name it as d, if d[2] == 0.166667, print $0
