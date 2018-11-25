@@ -1,0 +1,2 @@
+# remove last line of a file in place
+sed -i "$ d" *.txt
