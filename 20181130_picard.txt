@@ -1,0 +1,7 @@
+picard_dir=/illumina/thirdparty/picard-tools
+java -jar $picard_dir/picard-2.8.2.jar CreateSequenceDictionary R=genome.fa O=genome.dict
+
+java -jar $picard_dir/picard-2.8.2.jar BedToIntervalList I=unppaded.targets.bed O=HPV16.list.interval_list SD=genome.dict
+
+yun_dir=/bioinfoSD/users/yun/ion
+iseq_bam=/illumina/scratch/CompetitiveAnalysis/CAG/Data/CustomerData/NCI/iseq/bwa_alignment_only/sorted_bams

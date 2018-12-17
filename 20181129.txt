@@ -1,0 +1,6 @@
+I want to "grep" from "line 2A" to the end of file:
+
+sed -n '/2A/,$p'
+-n : suppress sed default output
+/2A/ : output lines from the first one containing "2A"
+$ : to end of file

@@ -1,0 +1,10 @@
+
+build secondary analysis workflow
+https://confluence.illumina.com/display/BS/Creating+Analysis+Workflows
+
+# John Moon's SSE scripts on github:
+https://git.illumina.com/jmoon/bamdom
+
+hg38 on cluster: /genomes/Homo_sapiens/NCBI/GRCh38/Sequence/WholeGenomeFasta/genome.fa
+
+qlogin to a cluster: qlogin -l h=node148.cm.cluster

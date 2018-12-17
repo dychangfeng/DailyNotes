@@ -1,2 +1,7 @@
 mount_smbfs //ussd-prd-isi04/bioinfoSD/users/yun ./yun
 
+samtools, extract the region in bedfile
+## -h, with header, -L 
+samtools view -b -h *.bam -L *.bed > *.bam
+
+samtools view ERR2618717_Proband_S1.bam | cut -f1 | awk -v OFS="\t" '{split($1, a, ":");print a[6], a[7]}'|sort -k1,1n -k2,2n > tile_number.txt
