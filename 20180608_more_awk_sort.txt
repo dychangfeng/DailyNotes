@@ -8,3 +8,18 @@ awk '{split($1, a, ":");split(a[2],b, "-"); print a[1],b[1]+$2,b[1]+$3,".",$7,$6
 
 ## pipe: use file from chip-atlas to find exact g4 position in bed file
 cut -f1-3 Pol.Neu.05.AllAg.U-87_MG.bed | sort -k1,1 -k2,2n | bedtools getfasta -fi ~/ref_genome/hg19.fa -bed - |python ~/my_scripts/python_scripts/Quadparser3_12.py -f - |awk '{split($1, a, ":");split(a[2],b, "-"); print a[1],b[1]+$2,b[1]+$3,".",$7,$6}' | sort -k1,1 -k2,2n > polII_05_exact_G4.bed
+
+## use awk to change readname of fastqfile 
+
+zcat file.fastq.gz | awk '{print (NR%4 == 1) ? "@1_" ++i : $0}' | gzip -c > another.fastq.gz
+
+target_dir=/illumina/scratch/Cancerdata/PRJEB27414-WGS-stLFR_bams
+fastq=/illumina/scratch/CompetitiveAnalysis/CAG/Data/BGI/data/PRJEB27414-WGS-stLFR/ERR2898726-PCR-Free/*.fastq.gz
+n=1
+for i in $fastq;
+	do
+	#sprintf, assign the printf to a variable, s stands for string 
+	zcat $i | awk -v n="$n" '{if(NR%4==1) $0=sprintf("@BGI:1:ERR2898726:1:1101:1:%d %s:N:0:1",(1+i++), n); print;}' | gzip -c > ${target_dir}/ERR2898726_${n}.fastq.gz
+	n=$(($n + 1)) # increase n
+	
+done 

@@ -8,3 +8,8 @@ https://git.illumina.com/jmoon/bamdom
 hg38 on cluster: /genomes/Homo_sapiens/NCBI/GRCh38/Sequence/WholeGenomeFasta/genome.fa
 
 qlogin to a cluster: qlogin -l h=node148.cm.cluster
+
+#another folder to save data
+/illumina/scratch/Cancerdata
+
+ftp://ftp.sra.ebi.ac.uk/vol1/err/ERR289/006/

@@ -5,3 +5,11 @@ java -jar $picard_dir/picard-2.8.2.jar BedToIntervalList I=unppaded.targets.bed 
 
 yun_dir=/bioinfoSD/users/yun/ion
 iseq_bam=/illumina/scratch/CompetitiveAnalysis/CAG/Data/CustomerData/NCI/iseq/bwa_alignment_only/sorted_bams
+
+hg38=/genomes/Homo_sapiens/NCBI/GRCh38Decoy/Sequence/WholeGenomeFasta/genome.fa
+
+
+java -jar $picard_dir/picard-2.8.2.jar CollectSequencingArtifactMetrics \
+     I=input.bam \
+     O=artifact_metrics.txt \
+     R=$hg38
